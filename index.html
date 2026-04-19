@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minesweeper Solver</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Minesweeper Solver</p>
+          <h1>Markiere dein Brett und finde sichere Zuege.</h1>
+        </div>
+        <div class="controls">
+          <label>
+            Breite
+            <input id="cols" type="number" min="5" max="30" value="9">
+          </label>
+          <label>
+            Hoehe
+            <input id="rows" type="number" min="5" max="24" value="9">
+          </label>
+          <label>
+            Minen
+            <input id="mines" type="number" min="1" max="200" value="10">
+          </label>
+          <button id="new-board" type="button">Neues Brett</button>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="panel">
+          <h2>Eingabe</h2>
+          <p>
+            Klicke ein Feld mehrfach: unbekannt, Flagge, 0 bis 8. Der Solver
+            nutzt nur sichtbare Zahlen und Flaggen.
+          </p>
+          <button id="solve" type="button">Analysieren</button>
+          <button id="clear" type="button">Leeren</button>
+          <div class="legend">
+            <span><b class="sample unknown"></b> unbekannt</span>
+            <span><b class="sample flag"></b> Flagge</span>
+            <span><b class="sample safe"></b> sicher</span>
+            <span><b class="sample mine"></b> Mine</span>
+          </div>
+        </aside>
+
+        <section class="board-area">
+          <div id="board" class="board" aria-label="Solver Brett"></div>
+        </section>
+
+        <aside class="panel results">
+          <h2>Analyse</h2>
+          <p id="summary">Noch keine Analyse.</p>
+          <ol id="moves"></ol>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
