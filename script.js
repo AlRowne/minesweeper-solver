@@ -37,7 +37,8 @@ function makeBoard() {
 
 function renderBoard() {
   boardElement.innerHTML = "";
-  boardElement.style.gridTemplateColumns = `repeat(${cols}, var(--cell-size))`;
+  boardElement.style.setProperty("--cols", cols);
+  boardElement.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
 
   forEachCell((cell) => {
     const button = document.createElement("button");
@@ -83,13 +84,13 @@ function paintBoard() {
 
     if (mark.type === "safe") {
       button.classList.add("solver-safe");
-      button.textContent = "safe";
+      button.textContent = "S";
       return;
     }
 
     if (mark.type === "mine") {
       button.classList.add("solver-mine");
-      button.textContent = "mine";
+      button.textContent = "M";
       return;
     }
 

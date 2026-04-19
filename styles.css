@@ -151,16 +151,20 @@ input:hover {
 }
 
 .board {
-  --cell-size: clamp(30px, 5vw, 42px);
+  --cell-max-size: 42px;
   display: grid;
-  width: fit-content;
+  width: 100%;
+  max-width: calc(
+    (var(--cols) * var(--cell-max-size)) + ((var(--cols) - 1) * 3px)
+  );
   margin: 0 auto;
   gap: 3px;
 }
 
 .cell {
   display: grid;
-  width: var(--cell-size);
+  width: 100%;
+  min-height: 0;
   aspect-ratio: 1;
   place-items: center;
   border: 0;
