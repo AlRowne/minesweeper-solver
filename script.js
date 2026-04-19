@@ -37,7 +37,7 @@ function makeBoard() {
 
 function renderBoard() {
   boardElement.innerHTML = "";
-  boardElement.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
+  boardElement.style.gridTemplateColumns = `repeat(${cols}, var(--cell-size))`;
 
   forEachCell((cell) => {
     const button = document.createElement("button");

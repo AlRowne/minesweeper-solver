@@ -151,6 +151,7 @@ input:hover {
 }
 
 .board {
+  --cell-size: clamp(30px, 5vw, 42px);
   display: grid;
   width: fit-content;
   margin: 0 auto;
@@ -159,7 +160,7 @@ input:hover {
 
 .cell {
   display: grid;
-  width: clamp(30px, 5vw, 42px);
+  width: var(--cell-size);
   aspect-ratio: 1;
   place-items: center;
   border: 0;
